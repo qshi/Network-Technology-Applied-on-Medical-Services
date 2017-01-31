@@ -22,11 +22,11 @@ Key words: Computer Network; Medical Application; Multiple communication; Access
 ##Design process of the system
 When the patient would like to see a doctor, he first signs up and then logins
 online using its own user ID and password; The server then verifies the received user information by checking the corresponding information saved in the database. If this user information is authorized to be valid, then the server will send an acknowledgement to the patient and asks which department and doctor the patient wants to visit; The patient chooses the department and the doctor, and sends this information to the server; The server retrieves the time schedule of the chosen doctor, which is saved in the database, then sends the available timeslots to the patient; The patient chooses one or several timeslots and sends the information to the server; The server sends the chosen timeslots to the chosen doctor. If the doctor agrees with the time and doesn’t want to cancel the appointment, the system then informs the patient his appointment is complete (we might use email or other methods to inform patients, where the detail is still in discussion now). Or else, go back to step 3.
- ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/flowchart.png)
+ ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/flowchart.png)
 
 ##Architecture of System
 Based on the design, we try to set up the following architecture. In our system, there are one server and two different kinds of clients. We also have set up databases to both of them. Moreover, they are assigned different level authority to the databases. In order to protect the privacy of the patients, each patient client is assigned with restricted, corresponding read/write privileges by the system. In contrast with the patient client, the doctor client is assigned with full read/write privileges by the system. It can access and modify any data from the database without any block.
- ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/architecture.png)
+ ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/architecture.png)
 
 ## Design
 # Sign up and login
@@ -45,33 +45,33 @@ After the patients successfully make an appointment, the server would automatica
 ##Implementation Details or Test Bed
 # On Patient Side
 Our project is programming using java. When the patient first uses this system, he would be able to sign up in the system so that the database could store their information and return to the doctors when they make an appointment in the next steps.
- ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/Signup.png)
+ ![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/Signup.png)
 After the patient sign up into the system, he could use the ID and password login
 to the system, the server would check the database if there exists such a client. For the authorized users, it will return the login successful message. Otherwise, the warning message would be sent.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/login.png)
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/Warning1.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/login.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/Warning1.png)
 
 After the patient get into the system, he could make an appointment by choosing the time, AM/PM and doctor as he want.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/appointment.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/appointment.png)
 When he selects the time and doctor, he could click the button to register to the
 server. At the same time the server check if the time and the doctor is available. If is, the server would return the success message as below.
 
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/register.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/register.png)
 If not, the patient would get the warning information as below.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/Warning2.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/Warning2.png)
 Finally, the patient could get an email sent by the system to notify him the success of register and remind him the appointment detail.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/email.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/email.png)
 
 #On Doctor Side
 The doctor could also login to the system as patient. Besides that, he could see his schedule as below. He has the authority to cancel or reappoint the schedule.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/DoctorUI.png)
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/delete.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/DoctorUI.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/delete.png)
 
 #On Database Side
 For patient, the database only stores the register information in it. To protect the privacy of patient, their passwords are encrypted in the database.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/encrypt.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/encrypt.png)
 For doctors, the database stores the schedule of them. Every time a patient make an appointment, the database would update so that doctor could know it in time.
-![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/tree/blob/master/image/schedule.png)
+![image](https://github.com/qshi/Network-Technology-Applied-on-Medical-Services/blob/master/image/schedule.png)
 
 ##Test case 
 1.	Sign up:  clicking sign up button, in the window that appears, enter the password and ID, click on the "submit" button. A new account will be saved into the database.
